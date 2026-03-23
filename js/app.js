@@ -138,3 +138,9 @@ async function searchResults(search) {
     );
   });
 }
+
+const issueDetail = (id) => {
+  fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`)
+    .then((res) => res.json())
+    .then((detail) => displayModal(detail.data));
+}
