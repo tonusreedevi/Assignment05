@@ -117,3 +117,24 @@ function displayCards(cards, Btn) {
   });
   manageSpinner(false);
 }
+loadCards(allBtn);
+
+async function searchResults(search) {
+  const searchValues = inputSearch.value;
+  const res = await fetch(
+    `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValues}`,
+  );
+  const data = await res.json();
+  displayCards(data.data);
+
+  const btns = document.querySelectorAll(".btn");
+  btns.forEach((btn) => {
+    btn.classList.remove("bg-[#4A00FF]", "text-white", "font-semibold");
+    btn.classList.add(
+      "bg-white",
+      "text-[#64748B]",
+      "border-[#E4E4E7]",
+      "font-medium",
+    );
+  });
+}
