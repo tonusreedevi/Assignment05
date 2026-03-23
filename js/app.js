@@ -144,3 +144,55 @@ const issueDetail = (id) => {
     .then((res) => res.json())
     .then((detail) => displayModal(detail.data));
 }
+
+const displayModal = (card) => {
+    modContain.innerHTML = `
+                <div>
+                  <h3>${card.title}</h3>
+                  <div class="flex items-center">
+                    <div
+                      class="badge ${card.status == "open" ? `bg-[#00A96E]` : `bg-[#EF4444]`} text-white text-[12px] font-medium rounded-full"
+                    >
+                      ${card.status}
+                    </div>
+                    <div class="text-[#64748B] text-[12px] flex flex-col md:flex-row gap-1 ml-1">
+                      <div> • Opened by ${card.assignee} </div>
+                      <div> • ${card.createdAt}</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex gap-1">
+                  <div
+                    class="badge bg-[#FEECEC] text-[#EF4444] border-[#FECACA] text-[12px] font-medium rounded-full"
+                  >
+                    <i class="fa-solid fa-bug"></i>Bugs
+                  </div>
+                  <div
+                    class="badge bg-[#FFF8DB] text-[#D97706] border-[#FDE68A] text-[12px] font-medium rounded-full"
+                  >
+                    <i class="fa-solid fa-life-ring"></i>Help Wanted
+                  </div>
+                </div>
+                <div class="text-[#64748B]">${card.description}</div>
+                <div class="p-4 grid grid-cols-2 gap-2.5">
+                    <div>
+                        <p class="text-[#64748B]">Assignee:</p>
+                        <h5 class="font-bold">${card.assignee}</h5>
+                    </div>
+                     <div>
+                        <p class="text-[#64748B]">Author:</p>
+                        <h5 class="font-bold">${card.author}</h5>
+                    </div>
+                    <div>
+                        <p class="text-[#64748B]">Priority:</p>
+                         <div
+                      class="badge ${card.priority == "high" ? `bg-[#EF4444]` : card.priority == "medium" ? `bg-[#c77518]` : `bg-[#27a176]`} text-white text-[12px] font-medium rounded-full"
+                    >
+                      ${card.priority}
+                    </div>
+                    </div>
+                </div>
+              </div>       
+    `; 
+    document.getElementById("main-modal").showModal();
+}
