@@ -24,7 +24,41 @@
     }
 </style>
 </head>
-<body>
+
+<body class="bg-base-500">
+
+  <main class="min-h-screen flex flex-col">
+  
+    <section id="login-section" class="flex-1 py-16 flex items-center justify-center bg-base-200">
+      <div class="card w-full max-w-md bg-base-100 border border-base-200 rounded-lg shadow-lg p-6">
+        <div class="flex flex-col items-center justify-center gap-4 w-full">
+          <div class="logo">
+            <i class="fa-brands fa-github text-8xl text-base-content"></i>
+          </div>
+          <h1 class="text-2xl font-bold text-center mb-1">GitHub Issue Tracker</h1>
+          <p class="text-center text-base-content/70">Sign in to manage your issues</p>
+        </div>
+        <p id="error-message" class="text-medium text-red-500 mt-2 text-center hidden"></p>
+        <fieldset id="login-form" class="form-control mt-4 w-full space-y-2">
+          <label class="label">
+            <span class="label-text">Username</span>
+          </label>
+          <input type="text" id="username" placeholder="Enter your username" class="input input-bordered w-full" />
+          <label class="label">
+            <span class="label-text">Password</span>
+          </label>
+          <input type="password" id="password" placeholder="Enter your password" class="input input-bordered w-full" />
+          <button id="login-btn" class="btn btn-primary w-full mt-4">Sign In</button>
+        </fieldset>
+        <div class="divider">OR</div>
+        <p class="text-sm bg-base-200 p-2 rounded-lg text-center text-base-content/60 mt-2">Username:
+          <strong>admin</strong> - Password: <strong>admin123</strong>
+        </p>
+      </div>
+    </section>
+   
+  </main>
+
 
 
 
